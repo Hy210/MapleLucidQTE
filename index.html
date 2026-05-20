@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MapleLucid QTE Practice</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <main class="app" id="app">
+      <section class="practice-stage" aria-label="QTE practice area">
+        <div class="scene-frame" aria-hidden="true">
+          <img class="scene-effect" id="sceneEffect" alt="">
+        </div>
+
+        <div class="qte-panel" id="qtePanel">
+          <img class="qte-base" src="assets/base/qte.base.base.png" alt="">
+
+          <div class="key-row" id="keyRow"></div>
+
+          <div class="timer-wrap" aria-hidden="true">
+            <img class="timer-base" src="assets/timer/qte.timer.base.png" alt="">
+            <div class="timer-gauge-clip" id="timerGaugeClip">
+              <img class="timer-gauge" src="assets/timer/qte.timer.gauge.png" alt="">
+            </div>
+            <img class="timer-edge" id="timerEdge" src="assets/timer/qte.timer.edge.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="status-panel" aria-live="polite">
+        <div class="status-main" id="statusMain">Enter</div>
+        <div class="status-sub" id="statusSub">시작 / 재시작</div>
+        <div class="stats-grid">
+          <div>
+            <span>Round</span>
+            <strong id="roundStat">0 / 3</strong>
+          </div>
+          <div>
+            <span>Correct</span>
+            <strong id="correctStat">0</strong>
+          </div>
+          <div>
+            <span>Wrong</span>
+            <strong id="wrongStat">0</strong>
+          </div>
+          <div>
+            <span>Missed</span>
+            <strong id="missedStat">0</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/qte.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
