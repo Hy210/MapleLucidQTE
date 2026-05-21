@@ -6,6 +6,7 @@
       status: "idle",
       roundIndex: 0,
       roundStartTime: 0,
+      inputCompletedAt: 0,
       sessionStartTime: 0,
       endEffectStartTime: 0,
       pattern: [],
@@ -52,6 +53,7 @@
     state.keyStates = createKeyStates(state.pattern);
     state.currentIndex = 0;
     state.roundStartTime = now;
+    state.inputCompletedAt = 0;
     state.status = "running";
   }
 
@@ -108,7 +110,11 @@
     }
 
     const elapsed = now - state.roundStartTime;
-    if (elapsed >= config.roundDurationMs) {
+    const completedElapsed = state.inputCompletedAt ? now - state.inputCompletedAt : 0;
+    if (
+      elapsed >= config.roundDurationMs ||
+      (state.inputCompletedAt && completedElapsed >= config.completedRoundDelayMs)
+    ) {
       finishRound(now);
     }
   }
@@ -137,6 +143,10 @@
 
     state.totals.inputs += 1;
     state.currentIndex += 1;
+
+    if (state.currentIndex >= state.pattern.length) {
+      state.inputCompletedAt = now;
+    }
   }
 
   function getRoundProgress(now) {

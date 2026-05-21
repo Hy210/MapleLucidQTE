@@ -4,6 +4,7 @@
     patternLength: 8,
     roundCount: 3,
     roundDurationMs: 3000,
+    completedRoundDelayMs: 500,
     resultAnimationFps: 30,
     effectIntroFps: 24,
     effectLoopFps: 24,

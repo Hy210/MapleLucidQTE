@@ -110,8 +110,9 @@
   }
 
   function renderTimer(now) {
-    const ratio = 1 - game.getRoundProgress(now);
+    const ratio = game.getRoundProgress(now);
     const fillWidth = Math.max(0, Math.round(config.timerFillWidth * ratio));
+    dom.timerGaugeClip.style.left = "12px";
     dom.timerGaugeClip.style.width = `${fillWidth}px`;
     dom.timerEdge.style.left = `${8 + fillWidth}px`;
   }
@@ -148,6 +149,7 @@
 
     if (state.status !== "running") {
       dom.keyRow.innerHTML = "";
+      dom.timerGaugeClip.style.left = "12px";
       dom.timerGaugeClip.style.width = "0px";
       dom.timerEdge.style.left = "8px";
     } else {
